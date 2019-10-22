@@ -43,14 +43,17 @@ const titleClickHandler = function(event){
     link.addEventListener('click', titleClickHandler);
   }
 
-  
+
   const optArticleSelector = '.post',
   optTitleSelector = '.post-title',
   optTitleListSelector = '.titles';
 
 function generateTitleLinks(){
+  console.log('Wygenerowano listę linków!');
 
   /* remove contents of titleList */
+  const titleList = document.querySelector(optTitleListSelector);
+  titleList.innerHTML = '';
 
   /* for each article */
 
