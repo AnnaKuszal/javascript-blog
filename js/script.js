@@ -1,3 +1,4 @@
+{
 'use strict';
 
 const titleClickHandler = function(event){
@@ -51,25 +52,40 @@ const titleClickHandler = function(event){
 function generateTitleLinks(){
   console.log('Wygenerowano listę linków!');
 
-  /* remove contents of titleList */
+  /* [DONE] remove contents of titleList */
   const titleList = document.querySelector(optTitleListSelector);
   titleList.innerHTML = '';
 
+  /* find all the articles and save them to variable: articles */
+  const articles = document.querySelectorAll(optArticleSelector);
+
   /* for each article */
+  for(let article of articles){
 
     /* get the article id */
-
+    const articleId = article.getAttribute('id');
+    console.log(articleId);
+      
     /* find the title element */
-
     /* get the title from the title element */
+    const articleTitle = article.querySelector(optTitleSelector).innerHTML;
+    console.log(articleTitle);
+
 
     /* create HTML of the link */
+ 
 
     /* insert link into titleList */
+  
+  
+
+  }
 
 }
 
 generateTitleLinks();
+
+}
 
 
 
