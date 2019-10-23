@@ -39,7 +39,7 @@ const titleClickHandler = function(event){
   }
   
   const links = document.querySelectorAll('.titles a');
-  
+  console.log(links);
   for(let link of links){
     link.addEventListener('click', titleClickHandler);
   }
@@ -59,6 +59,8 @@ function generateTitleLinks(){
   /* find all the articles and save them to variable: articles */
   const articles = document.querySelectorAll(optArticleSelector);
 
+  let html = '';
+
   /* for each article */
   for(let article of articles){
 
@@ -73,14 +75,19 @@ function generateTitleLinks(){
 
 
     /* create HTML of the link */
- 
+    const linkHTML = '<li><a href="#' + articleId + '"><span>' + articleTitle + '</span></a></li>';
+    console.log(linkHTML);
 
     /* insert link into titleList */
+    //titleList.innerHTML = titleList.innerHTML + linkHTML;  kod przed optymalizacją
+    //titleList.insertAdjacentHTML('beforeend', linkHTML);  // kod po optymalizacji
   
-  
+    /* insert link into html variable */
+    html = html + linkHTML;
 
   }
 
+  titleList.innerHTML = html;
 }
 
 generateTitleLinks();
