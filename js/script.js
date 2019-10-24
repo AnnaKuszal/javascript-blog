@@ -104,17 +104,22 @@
 
   function generateTags(){
     /* find all articles */
-    const articles = querySelectorAll(optArticleSelector);
+    const articles = document.querySelectorAll(optArticleSelector);
+
+    let html = '';
+
 
     /* START LOOP: for every article: */
-
-
+    for(let article of articles){
+      //console.log(article);
 
       /* find tags wrapper */
-
+      const tagsWrapper = article.querySelector(optArticleTagsSelector);
       /* make html variable with empty string */
 
       /* get tags from data-tags attribute */
+      const articleTags = article.getAttribute('data-tags');
+      console.log(articleTags);
 
       /* split tags into array */
 
@@ -130,7 +135,7 @@
 
     /* END LOOP: for every article: */
 
-
+    }
 
   }
 
