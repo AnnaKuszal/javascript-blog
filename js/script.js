@@ -104,8 +104,11 @@
 
   function generateTags(){
     /* find all articles */
+    const articles = querySelectorAll(optArticleSelector);
 
     /* START LOOP: for every article: */
+
+
 
       /* find tags wrapper */
 
@@ -126,6 +129,9 @@
       /* insert HTML of all the links into the tags wrapper */
 
     /* END LOOP: for every article: */
+
+
+
   }
 
   generateTags();
