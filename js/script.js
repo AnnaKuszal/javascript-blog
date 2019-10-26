@@ -231,7 +231,8 @@
   function generateAuthors(){
     console.log('Wygenerowano nazwiska autorów');
     /* find all articles */
-
+    const articles = document.querySelectorAll(optArticleSelector);
+    console.log('Articles found: ', articles);
 
     /* START LOOP: for every article*/
 
