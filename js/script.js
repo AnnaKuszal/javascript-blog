@@ -261,24 +261,27 @@
     }
   }
 
-  generateAuthors();
+
+
 
   function addClickListenerToAuthors(){
     /* find all links to authors in articles*/
-
+    const authorLinks = document.querySelectorAll('a[href^="#author-"]');
+    //console.log(authorLinks);
 
     /* START LOOP: for every link to author */
-
+    for(let authorLink of authorLinks){
 
       /* add authorClickHandler as event listener to this link */
+      authorLink.addEventListener('click', authorClickHandler);
 
 
     /* END LOOP: for every link to author */
+    }
 
-}
+  }
 
-function addClickListenerToAuthors()
-
+  addClickListenerToAuthors();
 
 
 }
