@@ -290,7 +290,7 @@
     }
 
     /* [DONE] find all links with href attribute equal to href in constant "href" */
-      const targetAuthorLinks = document.querySelectorAll('a[href="' + href +'"]');
+    const targetAuthorLinks = document.querySelectorAll('a[href="' + href +'"]');
 
     /* [DONE] START LOOP: for every found link */
     for(let targetAuthorLink of targetAuthorLinks){
