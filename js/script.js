@@ -261,6 +261,39 @@
     }
   }
 
+  generateAuthors();
+
+
+  function authorClickHandler(){
+    /* prevent default action for this event */
+
+    /* make new constant named "clickedElement" and give it the value of "this" */
+
+    /* make a new constant "href" and read the attribute "href" of the clicked element */
+
+    /* make a new constant "author" and extract author of the "href" constant */
+
+    /* find all links to an author with class active */
+
+    /* START LOOP: for every found link */
+
+      /* remove class active*/
+
+    /* END LOOP: for every found link */
+
+    /* found all links with href attribute equal to href in constant "href" */
+
+    /* START LOOP: for every found link */
+
+      /* add class active*/
+
+    /* END LOOP: for every found link */
+
+    /* execute function "generateTitleLinks" with article selector as argument */
+
+  }
+
+
 
 
 
