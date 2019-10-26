@@ -235,24 +235,36 @@
     console.log('Articles found: ', articles);
 
     /* START LOOP: for every article*/
-
+    for (let article of articles){
       /* find author wrapper and clear it */
+      const authorWrapper = article.querySelector(optArticleAuthorSelector);
+      authorWrapper.innerHTML='';
 
       /* make html variable with empty string */
+      let html = '';
 
       /* get author from data-author attribute */
+      const author = article.getAttribute('data-author');
+      console.log(author);
 
       /* generate HTML link for author*/
+      const linkHTML = '<ul class="list"><li><a href="#author-' + author + '">' + author + '</a></li> </ul>';
+      console.log(linkHTML);
 
       /* add generated code into html variable*/
+      html = html + linkHTML;
 
       /* insert html with link for author into the author wrapper*/
+      authorWrapper.innerHTML=linkHTML;
 
     /* END LOOP: for each article*/
-
+    }
   }
 
   generateAuthors();
+
+
+
 
 
 }
