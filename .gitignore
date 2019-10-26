@@ -103,3 +103,6 @@ public
 #css
 css/
 css/*
+.editorconfig
+.eslintrc.json
+.stylelintrc.json
