@@ -263,7 +263,21 @@
 
   generateAuthors();
 
+  function addClickListenerToAuthors(){
+    /* find all links to authors in articles*/
 
+
+    /* START LOOP: for every link to author */
+
+
+      /* add authorClickHandler as event listener to this link */
+
+
+    /* END LOOP: for every link to author */
+
+}
+
+function addClickListenerToAuthors()
 
 
 
