@@ -54,7 +54,8 @@
     optArticleAuthorSelector = '.post-author',
     optTagsListSelector = '.tags.list',
     optCloudClassCount = '5',
-    optCloudClassPrefix = 'tag-size-';
+    optCloudClassPrefix = 'tag-size-',
+    optAuthorsListSelector = '.authors.list';
 
 
 
@@ -68,7 +69,7 @@
 
     /* [DONE] find all the articles and save them to variable: articles */
     const articles = document.querySelectorAll(optArticleSelector + customSelector);
-    console.log('ARTICLES', articles);
+    //console.log('ARTICLES', articles);
 
     let html = '';
 
@@ -77,12 +78,12 @@
 
       /* [DONE] get the article id */
       const articleId = article.getAttribute('id');
-      console.log(articleId);
+      //console.log(articleId);
 
       /* [DONE] find the title element */
       /* [DONE] get the title from the title element */
       const articleTitle = article.querySelector(optTitleSelector).innerHTML;
-      console.log(articleTitle);
+      //console.log(articleTitle);
 
 
       /* [DONE] create HTML of the link */
@@ -203,7 +204,7 @@
       /* [DONE] END LOOP: for every article: */
 
     }
-     /* [NEW] find list of tags in right column */
+    /* [NEW] find list of tags in right column */
     const tagList = document.querySelector('.tags');
 
     const tagsParams = calculateTagsParams(allTags);
@@ -309,10 +310,14 @@
 
 
   function generateAuthors(){
-    console.log('Wygenerowano nazwiska autorów');
+    /* [NEW] create a new variable allAuthors with an empty object */
+    let allAuthors = {};
+    console.log('ALL AUTHORS: ', allAuthors);
+
+
     /* [DONE]  find all articles */
     const articles = document.querySelectorAll(optArticleSelector);
-    console.log('Articles found: ', articles);
+    //console.log('Articles found: ', articles);
 
     /* [DONE] START LOOP: for every article*/
     for (let article of articles){
@@ -325,7 +330,7 @@
 
       /* [DONE] get author from data-author attribute */
       const author = article.getAttribute('data-author');
-      console.log(author);
+      //console.log(author);
 
       /* [DONE] generate HTML link for author*/
       const linkHTML = '<ul class="list"><li><a href="#author-' + author + '">' + author + '</a></li> </ul>';
@@ -334,11 +339,34 @@
       /* [DONE] add generated code into html variable*/
       html = html + linkHTML;
 
+      /* [NEW] check if this link is NOT already in allTags */
+      if(!allAuthors.hasOwnProperty(author)){
+        /* [NEW] add tag to allTags object */
+        allAuthors[author] = 1;
+      } else {
+        allAuthors[author]++;
+      }
+
+
       /* [DONE] insert html with link for author into the author wrapper*/
       authorWrapper.innerHTML=linkHTML;
 
     /* [DONE] END LOOP: for each article*/
     }
+
+    /* [NEW] find list of authors in right column */
+
+    /* [NEW] create variable 'allAuthortHTML' for all links HTML code*/
+
+    /* [NEW] START LOOP: for each author in allAuthors: */
+
+      /* [NEW] generate code of a link with numbers for authors and add it to 'allAuthortHTML' */
+
+    /* [NEW] END LOOP: for each author in allAuthors: */
+
+
+  /* [NEW] add html from allTagsHTML to tagList */
+
   }
 
   generateAuthors();
