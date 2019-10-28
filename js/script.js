@@ -222,7 +222,8 @@
 
 
       /* Add 'class' attribute to a generated link */
-      const tagLinkHTML = '<li><a class ="' + calculateTagClass(allTags[tag], tagsParams) + '" href="#tag-' + tag + '">' + tag + '</a>' + ' ' + '(' + allTags[tag] + ')</li>';
+      //const tagLinkHTML = '<li><a class ="' + calculateTagClass(allTags[tag], tagsParams) + '" href="#tag-' + tag + '">' + tag + '</a>' + ' ' + '(' + allTags[tag] + ')</li>';   pelny kod (z liczbą wyświetleń danego taga)
+      const tagLinkHTML = '<li><a class ="' + calculateTagClass(allTags[tag], tagsParams) + '" href="#tag-' + tag + '">' + tag + '</a>' + ' ' + '</li>';
       console.log('tagLinkHTML: ', tagLinkHTML);
 
       allTagsHTML += tagLinkHTML;
