@@ -124,22 +124,40 @@ body {
 }
 
 /* Tags */
-.tag-size-1 {
-  font-size: 16px;
-}
+.tags {
 
-.tag-size-2 {
-  font-size: 20px;
-}
+  li {
+  display: inline-block;
+    a {
+      text-decoration: none;
+      font-weight: 700;
+    }
+  }
 
-.tag-size-3 {
-  font-size: 24px;
-}
+  .tag-size-1 {
+    font-size: 16px;
+    color: #ffb31a;
 
-.tag-size-4 {
-  font-size: 28px;
-}
+  }
 
-.tag-size-5 {
-  font-size: 32px;
+  .tag-size-2 {
+    font-size: 20px;
+    color:#cc0000;
+  }
+
+  .tag-size-3 {
+    font-size: 24px;
+    color: #ff3333;
+  }
+
+  .tag-size-4 {
+    font-size: 28px;
+    color: #ff8080;
+  }
+
+  .tag-size-5 {
+    font-size: 32px;
+    color: #ffcccc;
+  }
+
 }
