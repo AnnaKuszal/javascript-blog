@@ -13,6 +13,8 @@
     cloudClassPrefix: 'tag-size-',
     authorsListSelector: '.authors.list'
   }
+
+
 */
 
   const opts = {
@@ -406,22 +408,22 @@
     /* [NEW] create variable 'allAuthorsHTML' for all links HTML code*/
     let allAuthorsHTML = '';
 
-      /* [NEW] START LOOP: for each author in allAuthors: */
-      for (let author in allAuthors){
-        console.log('AUTHOR: ', author);
+    /* [NEW] START LOOP: for each author in allAuthors: */
+    for (let author in allAuthors){
+      console.log('AUTHOR: ', author);
 
-        /* [NEW] generate code of a link with authors&numbers and add it to 'allAuthortHTML' */
-        const authorLinkHTML = '<li><a href="#author-' + author + '">' + author + '</a>' + ' ' + '(' + allAuthors[author] + ')</li>';
-        console.log('authorLinkHTML: ', authorLinkHTML);
+      /* [NEW] generate code of a link with authors&numbers and add it to 'allAuthortHTML' */
+      const authorLinkHTML = '<li><a href="#author-' + author + '">' + author + '</a>' + ' ' + '(' + allAuthors[author] + ')</li>';
+      console.log('authorLinkHTML: ', authorLinkHTML);
 
-        allAuthorsHTML += authorLinkHTML;
-        console.log('allAuthorsHTML: ', allAuthorsHTML);
+      allAuthorsHTML += authorLinkHTML;
+      console.log('allAuthorsHTML: ', allAuthorsHTML);
       /* [NEW] END LOOP: for each author in allAuthors: */
-     }
+    }
 
 
-  /* [NEW] add html from allAuthorsHTML to authorList */
-     authorList.innerHTML = allAuthorsHTML;
+    /* [NEW] add html from allAuthorsHTML to authorList */
+    authorList.innerHTML = allAuthorsHTML;
   }
 
   generateAuthors();
@@ -498,4 +500,18 @@ document.getElementById('test-button').addEventListener('click', function(){
     const links = document.querySelectorAll('.titles a');
     console.log('links:', links);
   });
+  */
+
+  /* VALUES CHANGED WHEN ADDING NESTED OBJECTS ----
+  109	opts.titleListSelector		select.listOf.titles
+	250	opts.tagsListSelector		select.listOf.tags
+	401 opts.authorsListSelector	select.listOf.authors
+	113	opts.articleSelector		select.all.articles
+	127	opts.titleSelector			select.article.title
+	198	opts.articleSelector		select.all.articles
+	206	opts.articleTagsSelector	select.article.tags
+	363	opts.articleSelector		select.all.articles
+	369 opts.articleAuthorSelector	select.article.author
+	185	opts.cloudClassCount		opts.tagSizes.count
+	187	opts.cloudClassPrefix		opts.tagSizes.classPrefix
   */
