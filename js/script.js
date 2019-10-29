@@ -1,6 +1,10 @@
 {
   'use strict';
 
+  const templates = {
+    articleLink: Handlebars.compile(document.querySelector('#template-article-link').innerHTML)
+  }
+
   /* REMOVE OBJECT OPTS - ADD MULTIPLE OBJECTS BELOW
   const opts = {
     articleSelector: '.post',
@@ -132,7 +136,8 @@
 
 
       /* [DONE] create HTML of the link */
-      const linkHTML = '<li><a href="#' + articleId + '"><span>' + articleTitle + '</span></a></li>';
+      /*const linkHTML = '<li><a href="#' + articleId + '"><span>' + articleTitle + '</span></a></li>';  */  //replaced by 2 next lines in code
+
       console.log(linkHTML);
 
       /* [DONE] insert link into titleList */
