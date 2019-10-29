@@ -102,7 +102,7 @@
     titleList.innerHTML = html;
 
     const links = document.querySelectorAll('.titles a');
-    console.log(links);
+
     for(let link of links){
       link.addEventListener('click', titleClickHandler);
     }
@@ -341,7 +341,7 @@
 
       /* [NEW] check if this link is NOT already in allTags */
       if(!allAuthors.hasOwnProperty(author)){
-        /* [NEW] add tag to allTags object */
+        /* [NEW] add author to allAuthors object */
         allAuthors[author] = 1;
       } else {
         allAuthors[author]++;
@@ -349,24 +349,34 @@
 
 
       /* [DONE] insert html with link for author into the author wrapper*/
-      authorWrapper.innerHTML=linkHTML;
+      authorWrapper.innerHTML=html;
 
     /* [DONE] END LOOP: for each article*/
     }
 
     /* [NEW] find list of authors in right column */
-
-    /* [NEW] create variable 'allAuthortHTML' for all links HTML code*/
-
-    /* [NEW] START LOOP: for each author in allAuthors: */
-
-      /* [NEW] generate code of a link with numbers for authors and add it to 'allAuthortHTML' */
-
-    /* [NEW] END LOOP: for each author in allAuthors: */
+    const authorList = document.querySelector(optAuthorsListSelector);
 
 
-  /* [NEW] add html from allTagsHTML to tagList */
+    /* [NEW] create variable 'allAuthorsHTML' for all links HTML code*/
+    let allAuthorsHTML = '';
 
+      /* [NEW] START LOOP: for each author in allAuthors: */
+      for (let author in allAuthors){
+        console.log('AUTHOR: ', author);
+
+        /* [NEW] generate code of a link with authors&numbers and add it to 'allAuthortHTML' */
+        const authorLinkHTML = '<li><a href="#author-' + author + '">' + author + '</a>' + ' ' + '(' + allAuthors[author] + ')</li>';
+        console.log('allAuthorsHTML: ', allAuthorsHTML);
+
+        allAuthorsHTML+=authorLinkHTML;
+
+      /* [NEW] END LOOP: for each author in allAuthors: */
+     }
+
+
+  /* [NEW] add html from allAuthorsHTML to authorList */
+     authorList.innerHTML = allAuthorsHTML;
   }
 
   generateAuthors();
