@@ -205,7 +205,7 @@
 
     }
     /* [NEW] find list of tags in right column */
-    const tagList = document.querySelector('.tags');
+    const tagList = document.querySelector(optTagsListSelector);
 
     const tagsParams = calculateTagsParams(allTags);
     console.log('tagsParams: ', tagsParams);
@@ -215,6 +215,7 @@
 
     /* [NEW] START LOOP: for each tag in allTags: */
     for(let tag in allTags){
+      console.log('TAG: ', tag);
       /* [NEW] generate code of a link and add it to allTagsHTML */
       //allTagsHTML += '<li><a href="#tag-' + tag + '">' + tag + '</a>' + ' ' + '(' + allTags[tag] + ')</li> ';
       //console.log('allTagsHTML: ', allTagsHTML);
@@ -323,7 +324,7 @@
     for (let article of articles){
       /* [DONE] find author wrapper and clear it */
       const authorWrapper = article.querySelector(optArticleAuthorSelector);
-      authorWrapper.innerHTML='';
+      authorWrapper.innerHTML = '';
 
       /* [DONE] make html variable with empty string */
       let html = '';
@@ -356,6 +357,7 @@
 
     /* [NEW] find list of authors in right column */
     const authorList = document.querySelector(optAuthorsListSelector);
+    authorList.innerHTML = '';
 
 
     /* [NEW] create variable 'allAuthorsHTML' for all links HTML code*/
@@ -367,10 +369,10 @@
 
         /* [NEW] generate code of a link with authors&numbers and add it to 'allAuthortHTML' */
         const authorLinkHTML = '<li><a href="#author-' + author + '">' + author + '</a>' + ' ' + '(' + allAuthors[author] + ')</li>';
+        console.log('authorLinkHTML: ', authorLinkHTML);
+
+        allAuthorsHTML += authorLinkHTML;
         console.log('allAuthorsHTML: ', allAuthorsHTML);
-
-        allAuthorsHTML+=authorLinkHTML;
-
       /* [NEW] END LOOP: for each author in allAuthors: */
      }
 
@@ -388,12 +390,13 @@
 
     /* [DONE] make new constant named "clickedElement" and give it the value of "this" */
     const clickedElement = this;
+    //console.log('clickedElement:', clickedElement);
 
     /* [DONE] make a new constant "href" and read the attribute "href" of the clicked element */
-    const href  = clickedElement.getAttribute('href');
+    const href = clickedElement.getAttribute('href');
 
     /* [DONE] make a new constant "author" and extract author of the "href" constant */
-    const author  = href.replace('#author-', '');
+    const author = href.replace('#author-', '');
 
     /* [DONE] find all links to an author with class active */
     const activeAuthorLinks = document.querySelectorAll('a.active[href^="#author-"]');
