@@ -4,7 +4,8 @@
   const templates = {
     articleLink: Handlebars.compile(document.querySelector('#template-article-link').innerHTML),
     tagLink: Handlebars.compile(document.querySelector('#template-tag-link').innerHTML),
-    authorLink: Handlebars.compile(document.querySelector('#template-author-link').innerHTML)
+    authorLink: Handlebars.compile(document.querySelector('#template-author-link').innerHTML),
+    tagCloudLink: Handlebars.compile(document.querySelector('#template-tag-cloud-link').innerHTML)
   }
 
   /* REMOVE OBJECT OPTS - ADD MULTIPLE OBJECTS BELOW
@@ -269,7 +270,9 @@
     console.log('tagsParams: ', tagsParams);
 
     /* [NEW] create variable for all links HTML code*/
-    let allTagsHTML = '';
+    //let allTagsHTML = '';  remove - add object below instead
+    const allTagsData = {tags: []};
+    console.log(allTagsData);
 
     /* [NEW] START LOOP: for each tag in allTags: */
     for(let tag in allTags){
@@ -283,10 +286,16 @@
 
       /* Add 'class' attribute to a generated link */
       //const tagLinkHTML = '<li><a class ="' + calculateTagClass(allTags[tag], tagsParams) + '" href="#tag-' + tag + '">' + tag + '</a>' + ' ' + '(' + allTags[tag] + ')</li>';   pelny kod (z liczbą wyświetleń danego taga)
-      const tagLinkHTML = '<li><a class ="' + calculateTagClass(allTags[tag], tagsParams) + '" href="#tag-' + tag + '">' + tag + '</a>' + ' ' + '</li>';
-      console.log('tagLinkHTML: ', tagLinkHTML);
+      /* const tagLinkHTML = '<li><a class ="' + calculateTagClass(allTags[tag], tagsParams) + '" href="#tag-' + tag + '">' + tag + '</a>' + ' ' + '</li>';  */   // insert object instead
+      //console.log('tagLinkHTML: ', tagLinkHTML);
 
-      allTagsHTML += tagLinkHTML;
+      //allTagsHTML += tagLinkHTML;    ADD CODE FOR OBJECT
+
+      allTagsData.tags.push({
+        tag: tag,
+        count: allTags[tag],
+        className: calculateTagClass(allTags[tag], tagsParams)
+      });
 
 
 
@@ -294,7 +303,9 @@
     }
 
     /* [NEW] add html from allTagsHTML to tagList */
-    tagList.innerHTML = allTagsHTML;
+    //tagList.innerHTML = allTagsHTML;
+
+    tagList.innerHTML = templates.tagCloudLink(allTagsData);
 
   }
 
@@ -392,7 +403,7 @@
       //console.log(author);
 
       /* [DONE] generate HTML link for author*/
-      const linkHTML = '<ul class="list"><li><a href="#author-' + author + '">' + author + '</a></li> </ul>';   //replaced by 2 next lines in code
+      /*const linkHTML = '<ul class="list"><li><a href="#author-' + author + '">' + author + '</a></li> </ul>'; */   //replaced by 2 next lines in code
       //console.log(linkHTML);
 
       const linkHTMLData = {authorName: author};
