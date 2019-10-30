@@ -2,7 +2,8 @@
   'use strict';
 
   const templates = {
-    articleLink: Handlebars.compile(document.querySelector('#template-article-link').innerHTML)
+    articleLink: Handlebars.compile(document.querySelector('#template-article-link').innerHTML),
+    tagLink: Handlebars.compile(document.querySelector('#template-tag-link').innerHTML)
   }
 
   /* REMOVE OBJECT OPTS - ADD MULTIPLE OBJECTS BELOW
@@ -231,8 +232,12 @@
         console.log(tag);
 
         /* [DONE] generate HTML of the link */
-        const linkHTML = '<li><a href="#tag-' + tag + '">' + tag + '</a></li> ';
-        console.log(linkHTML);
+        /*const linkHTML = '<li><a href="#tag-' + tag + '">' + tag + '</a></li> '; */     //replaced by 2 next lines in code
+        //console.log(linkHTML);
+
+        const linkHTMLData = {tagName: tag};
+        const linkHTML = templates.tagLink(linkHTMLData);
+
 
         /* [DONE] add generated code to html variable */
         html = html + linkHTML;
