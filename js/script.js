@@ -5,7 +5,8 @@
     articleLink: Handlebars.compile(document.querySelector('#template-article-link').innerHTML),
     tagLink: Handlebars.compile(document.querySelector('#template-tag-link').innerHTML),
     authorLink: Handlebars.compile(document.querySelector('#template-author-link').innerHTML),
-    tagCloudLink: Handlebars.compile(document.querySelector('#template-tag-cloud-link').innerHTML)
+    tagCloudLink: Handlebars.compile(document.querySelector('#template-tag-cloud-link').innerHTML),
+    authorListLink: Handlebars.compile(document.querySelector('#template-author-list-link').innerHTML)
   }
 
   /* REMOVE OBJECT OPTS - ADD MULTIPLE OBJECTS BELOW
@@ -434,24 +435,37 @@
 
 
     /* [NEW] create variable 'allAuthorsHTML' for all links HTML code*/
-    let allAuthorsHTML = '';
+    //let allAuthorsHTML = '';  remove - add object below instead
+    const allAuthorsData = {authors: []};
+    console.log(allAuthorsData);
 
     /* [NEW] START LOOP: for each author in allAuthors: */
     for (let author in allAuthors){
       console.log('AUTHOR: ', author);
 
       /* [NEW] generate code of a link with authors&numbers and add it to 'allAuthortHTML' */
-      const authorLinkHTML = '<li><a href="#author-' + author + '">' + author + '</a>' + ' ' + '(' + allAuthors[author] + ')</li>';
-      console.log('authorLinkHTML: ', authorLinkHTML);
+      /* const authorLinkHTML = '<li><a href="#author-' + author + '">' + author + '</a>' + ' ' + '(' + allAuthors[author] + ')</li>'; */  // insert object instead
+      //console.log('authorLinkHTML: ', authorLinkHTML);
 
-      allAuthorsHTML += authorLinkHTML;
-      console.log('allAuthorsHTML: ', allAuthorsHTML);
+
+      //allAuthorsHTML += authorLinkHTML;  ADD CODE FOR OBJECT
+      //console.log('allAuthorsHTML: ', allAuthorsHTML);
+
+      allAuthorsData.authors.push({
+        author: author,
+        count: allAuthors[author]
+      });
+
       /* [NEW] END LOOP: for each author in allAuthors: */
     }
 
 
     /* [NEW] add html from allAuthorsHTML to authorList */
-    authorList.innerHTML = allAuthorsHTML;
+    //authorList.innerHTML = allAuthorsHTML;
+
+    authorList.innerHTML = templates.authorListLink(allAuthorsData);
+
+
   }
 
   generateAuthors();
