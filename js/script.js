@@ -7,7 +7,7 @@
     authorLink: Handlebars.compile(document.querySelector('#template-author-link').innerHTML),
     tagCloudLink: Handlebars.compile(document.querySelector('#template-tag-cloud-link').innerHTML),
     authorListLink: Handlebars.compile(document.querySelector('#template-author-list-link').innerHTML)
-  }
+  };
 
   /* REMOVE OBJECT OPTS - ADD MULTIPLE OBJECTS BELOW
   const opts = {
@@ -140,8 +140,6 @@
 
 
       /* [DONE] create HTML of the link */
-      /*const linkHTML = '<li><a href="#' + articleId + '"><span>' + articleTitle + '</span></a></li>';  */  //replaced by 2 next lines in code
-      //console.log(linkHTML);
 
       const linkHTMLData = {id: articleId, title: articleTitle};
       const linkHTML = templates.articleLink(linkHTMLData);
@@ -235,8 +233,6 @@
         console.log(tag);
 
         /* [DONE] generate HTML of the link */
-        /*const linkHTML = '<li><a href="#tag-' + tag + '">' + tag + '</a></li> '; */     //replaced by 2 next lines in code
-        //console.log(linkHTML);
 
         const linkHTMLData = {tagName: tag};
         const linkHTML = templates.tagLink(linkHTMLData);
@@ -271,9 +267,7 @@
     console.log('tagsParams: ', tagsParams);
 
     /* [NEW] create variable for all links HTML code*/
-    //let allTagsHTML = '';  remove - add object below instead
     const allTagsData = {tags: []};
-    console.log(allTagsData);
 
     /* [NEW] START LOOP: for each tag in allTags: */
     for(let tag in allTags){
@@ -287,10 +281,7 @@
 
       /* Add 'class' attribute to a generated link */
       //const tagLinkHTML = '<li><a class ="' + calculateTagClass(allTags[tag], tagsParams) + '" href="#tag-' + tag + '">' + tag + '</a>' + ' ' + '(' + allTags[tag] + ')</li>';   pelny kod (z liczbą wyświetleń danego taga)
-      /* const tagLinkHTML = '<li><a class ="' + calculateTagClass(allTags[tag], tagsParams) + '" href="#tag-' + tag + '">' + tag + '</a>' + ' ' + '</li>';  */   // insert object instead
-      //console.log('tagLinkHTML: ', tagLinkHTML);
 
-      //allTagsHTML += tagLinkHTML;    ADD CODE FOR OBJECT
 
       allTagsData.tags.push({
         tag: tag,
@@ -304,7 +295,6 @@
     }
 
     /* [NEW] add html from allTagsHTML to tagList */
-    //tagList.innerHTML = allTagsHTML;
 
     tagList.innerHTML = templates.tagCloudLink(allTagsData);
 
@@ -404,8 +394,6 @@
       //console.log(author);
 
       /* [DONE] generate HTML link for author*/
-      /*const linkHTML = '<ul class="list"><li><a href="#author-' + author + '">' + author + '</a></li> </ul>'; */   //replaced by 2 next lines in code
-      //console.log(linkHTML);
 
       const linkHTMLData = {authorName: author};
       const linkHTML = templates.authorLink(linkHTMLData);
@@ -435,7 +423,7 @@
 
 
     /* [NEW] create variable 'allAuthorsHTML' for all links HTML code*/
-    //let allAuthorsHTML = '';  remove - add object below instead
+
     const allAuthorsData = {authors: []};
     console.log(allAuthorsData);
 
@@ -444,12 +432,6 @@
       console.log('AUTHOR: ', author);
 
       /* [NEW] generate code of a link with authors&numbers and add it to 'allAuthortHTML' */
-      /* const authorLinkHTML = '<li><a href="#author-' + author + '">' + author + '</a>' + ' ' + '(' + allAuthors[author] + ')</li>'; */  // insert object instead
-      //console.log('authorLinkHTML: ', authorLinkHTML);
-
-
-      //allAuthorsHTML += authorLinkHTML;  ADD CODE FOR OBJECT
-      //console.log('allAuthorsHTML: ', allAuthorsHTML);
 
       allAuthorsData.authors.push({
         author: author,
@@ -461,7 +443,6 @@
 
 
     /* [NEW] add html from allAuthorsHTML to authorList */
-    //authorList.innerHTML = allAuthorsHTML;
 
     authorList.innerHTML = templates.authorListLink(allAuthorsData);
 
