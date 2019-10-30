@@ -425,7 +425,7 @@
     /* [NEW] create variable 'allAuthorsHTML' for all links HTML code*/
 
     const allAuthorsData = {authors: []};
-    console.log(allAuthorsData);
+
 
     /* [NEW] START LOOP: for each author in allAuthors: */
     for (let author in allAuthors){
