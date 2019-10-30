@@ -137,8 +137,10 @@
 
       /* [DONE] create HTML of the link */
       /*const linkHTML = '<li><a href="#' + articleId + '"><span>' + articleTitle + '</span></a></li>';  */  //replaced by 2 next lines in code
+      //console.log(linkHTML);
 
-      console.log(linkHTML);
+      const linkHTMLData = {id: articleId, title: articleTitle};
+      const linkHTML = templates.articleLink(linkHTMLData);
 
       /* [DONE] insert link into titleList */
       //titleList.innerHTML = titleList.innerHTML + linkHTML;  kod przed optymalizacją
