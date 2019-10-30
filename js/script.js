@@ -3,7 +3,8 @@
 
   const templates = {
     articleLink: Handlebars.compile(document.querySelector('#template-article-link').innerHTML),
-    tagLink: Handlebars.compile(document.querySelector('#template-tag-link').innerHTML)
+    tagLink: Handlebars.compile(document.querySelector('#template-tag-link').innerHTML),
+    authorLink: Handlebars.compile(document.querySelector('#template-author-link').innerHTML)
   }
 
   /* REMOVE OBJECT OPTS - ADD MULTIPLE OBJECTS BELOW
@@ -391,8 +392,12 @@
       //console.log(author);
 
       /* [DONE] generate HTML link for author*/
-      const linkHTML = '<ul class="list"><li><a href="#author-' + author + '">' + author + '</a></li> </ul>';
-      console.log(linkHTML);
+      const linkHTML = '<ul class="list"><li><a href="#author-' + author + '">' + author + '</a></li> </ul>';   //replaced by 2 next lines in code
+      //console.log(linkHTML);
+
+      const linkHTMLData = {authorName: author};
+      const linkHTML = templates.authorLink(linkHTMLData);
+
 
       /* [DONE] add generated code into html variable*/
       html = html + linkHTML;
